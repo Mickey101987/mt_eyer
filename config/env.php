@@ -26,10 +26,10 @@ $settings['db']['username'] = 'root';
 $settings['db']['password'] = '';
 
 $settings['api_auth'] = [
+    "path" => ["/admin", "/agents"],
+    "secure" => true,
+    "relaxed" => ["localhost"]
     "authenticator" => new PdoAuthenticator([
-        "path" => ["/admin", "/agents"],
-        "secure" => true,
-        "relaxed" => ["localhost"]
         "pdo" => $settings['pdo'],
         "table" => "users",
         "user" => "username",
