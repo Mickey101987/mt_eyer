@@ -27,7 +27,7 @@ $settings['db']['password'] = '';
 
 $settings['api_auth'] = [
     "authenticator" => new PdoAuthenticator([
-        "secure" => true,
+        "secure" => false,
         "path" => ["/admin", "/agents"],
         "realm" => "Protected",
         "pdo" => $settings['pdo'],
