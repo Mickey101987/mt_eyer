@@ -8,10 +8,10 @@ use Tuupola\Middleware\HttpBasicAuthentication;
 
 return function (App $app) {
     // Redirect to Swagger documentation
-    $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
+    $app->get("/", \App\Action\Home\HomeAction::class)->setName('home');
 
     // Swagger API documentation
-    $app->get('/home', \App\Action\LandingPage\LandingPage::class)->setName('landingPage');
+    $app->get("/home", \App\Action\LandingPage\LandingPage::class)->setName('landingPage');
 
     $app->get('/logout', \App\Action\Logout\LogoutAction::class)
         ->add(new HttpBasicAuthentication([
