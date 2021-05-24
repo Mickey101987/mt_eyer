@@ -6,5 +6,5 @@ $dbopts = parse_url(getenv('postgres://sskoivfjangisv:314c34bf54ade499488035729c
 
 // Database
 $settings['db']['database'] = 'gmt_csp';
-$settings['pdo'] =  new \PDO('postgresql:host=$dbopts["host"];port=$dbopts["port"];dbname=ltrim($dbopts["path"],'/'), $dbopts["user"], $dbopts["pass"]);
+$settings['pdo'] =  new \PDO('pgsql:host=$dbopts["host"];port=$dbopts["port"];dbname=ltrim($dbopts["path"],'/'), $dbopts["user"], $dbopts["pass"]);
 
