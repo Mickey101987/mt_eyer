@@ -38,9 +38,10 @@ $settings['logger'] = [
 ];
 
 // Database settings
+$dbopts = parse_url(getenv('DATABASE_URL'));
 $settings['db'] = [
-    'driver' => \Cake\Database\Driver\Mysql::class,
-    'host' => 'localhost',
+    'driver' => \Cake\Database\Driver\Postgres::class,
+    'host' => $dbopts["host"],
     'encoding' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',
     // Enable identifier quoting
@@ -75,12 +76,12 @@ $settings['phoenix'] = [
     ],
     'environments' => [
         'local' => [
-            'adapter' => 'mysql',
-            'host' => '127.0.0.1',
-            'port' => 3306,
-            'username' => 'root',
-            'password' => '',
-            'db_name' => 'gmt_csp',
+            'adapter' => 'PostgreSQL',
+            'host' => $dbopts["host"],
+            'port' => $dbopts["port"],
+            'username' => $dbopts["user"],,
+            'password' => $dbopts["pass"],
+            'db_name' => ltrim($dbopts["path"],'/'),
             'charset' => 'utf8',
         ],
         'local2' => [
