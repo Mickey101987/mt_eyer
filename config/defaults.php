@@ -3,8 +3,8 @@
 // Configure defaults for the whole application.
 
 // Error reporting
-error_reporting(0);
-ini_set('display_errors', '0');
+error_reporting('E_ALL');
+ini_set('display_errors', '1');
 
 // Timezone
 date_default_timezone_set('Africa/Douala');
