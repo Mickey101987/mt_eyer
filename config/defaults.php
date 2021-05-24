@@ -39,6 +39,7 @@ $settings['logger'] = [
 
 // Database settings
 $dbopts = parse_url(getenv('DATABASE_URL'));
+print_r($dbopts)
 $settings['db'] = [
     'driver' => \Cake\Database\Driver\Postgres::class,
     'host' => $dbopts["host"],
