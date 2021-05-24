@@ -3,7 +3,7 @@
 // Configure defaults for the whole application.
 
 // Error reporting
-error_reporting('E_ALL');
+error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 // Timezone
