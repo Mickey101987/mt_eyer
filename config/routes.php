@@ -5,7 +5,7 @@
 use Slim\App;
 use Slim\Routing\RouteCollectorProxy;
 use Tuupola\Middleware\HttpBasicAuthentication;
-phpinfo();
+
 return function (App $app) {
     // Redirect to Swagger documentation
     $app->get("/", \App\Action\Home\HomeAction::class)->setName('home');
