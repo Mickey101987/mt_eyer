@@ -36,7 +36,7 @@
             redirect: 'follow'
         };
 
-        fetch("http://localhost:8080/api/commune/"+id, requestOptions)
+        fetch("https://mt-eyer.herokuapp.com/api/commune/"+id, requestOptions)
             .then(response => response.text())
             .then(result => {
                 var commune = JSON.parse(result)
@@ -95,7 +95,7 @@
                 body: urlencoded,
                 redirect: 'follow'
             };
-            fetch("http://localhost:8080/api/commune/"+id, requestOptions)
+            fetch("https://mt-eyer.herokuapp.com/api/commune/"+id, requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     console.log(result)
@@ -121,7 +121,7 @@
                 body: formdata,
                 redirect: 'follow'
             };
-            fetch("http://localhost:8080/api/commune", requestOptions)
+            fetch("https://mt-eyer.herokuapp.com/api/commune", requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     hideWait()
@@ -137,7 +137,7 @@
 
 //Load data tables
 function loadData($){
-    fetch('http://localhost:8080/api/communes')
+    fetch('https://mt-eyer.herokuapp.com/api/communes')
         .then(response => response.json())
         .then(json => {
             //console.log(JSON.parse(json.communes))
