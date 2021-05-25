@@ -41,32 +41,17 @@ $settings['logger'] = [
 $dbopts = parse_url("postgres://sskoivfjangisv:314c34bf54ade499488035729c774893ab409a5dba5e6987e4c2a4922b5501af@ec2-18-215-111-67.compute-1.amazonaws.com:5432/d9d638bvv247to");
 $settings['db'] = [
     'driver' => \Cake\Database\Driver\Postgres::class,
+    'persistent' => true,
     'host' => $dbopts["host"],
-    'encoding' => 'utf8mb4',
-    'collation' => 'utf8mb4_unicode_ci',
-    // Enable identifier quoting
-    'quoteIdentifiers' => true,
-    // Set to null to use MySQL servers timezone
+    'username' => $dbopts["user"],
+    'password' => $dbopts["pass"],
+    'database' => ltrim($dbopts["path"],'/'),
+    'schema' => 'public',
+    'port' => $dbopts["port"],
+    'encoding' => 'utf8',
     'timezone' => null,
-    // Disable meta data cache
-    'cacheMetadata' => false,
-    // Disable query logging
-    'log' => false,
-    // PDO options
-    'flags' => [
-        // Turn off persistent connections
-        PDO::ATTR_PERSISTENT => false,
-        // Enable exceptions
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        // Emulate prepared statements
-        PDO::ATTR_EMULATE_PREPARES => true,
-        // Set default fetch mode to array
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        // Convert numeric values to strings when fetching.
-        // Since PHP 8.1 integers and floats in result sets will be returned using native PHP types.
-        // This option restores the previous behavior.
-        PDO::ATTR_STRINGIFY_FETCHES => true,
-    ],
+    'flags' => [],
+    'init' => [],
 ];
 
 // Phoenix settings
